@@ -3,31 +3,94 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+.navigation-bg {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.86) 16.34%, rgba(0, 0, 0, 0) 100%);
+}
+.home-bg1 {
+	position: relative;
+	background-image: url('../app/assets/home/landing.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.home-bg2 {
+	position: relative;
+	background-image: url('../app/assets/home/about.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.home-bg3 {
+	position: relative;
+	background-image: url('../app/assets/home/services.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.home-bg4 {
+	position: relative;
+	background-image: url('../app/assets/home/projects.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.home-bg5 {
+	position: relative;
+	background-image: url('../app/assets/home/testimonials.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.home-bg1::before,
+.home-bg2::before,
+.home-bg3::before,
+.home-bg4::before,
+.home-bg5::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2); /* Adjust the opacity to control the darkness */
+	z-index: 1;
+}
+html {
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+	width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 4px rgb(255, 255, 255);
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #ffffff;
 }
